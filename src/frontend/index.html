@@ -3,26 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce App</title>
+    <title>Tienda de Tavo</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 <body>
-    <header>
-        <h1>Mi E-Commerce</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#products">Productos</a></li>
-            </ul>
-        </nav>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">ShopTavo</a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Hombres</a></li>
+                    <li><a href="#">Mujeres</a></li>
+                    <li><a href="#">Niños</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <form class="search-bar">
+                    <input type="text" placeholder="Buscar productos...">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <a href="#" class="action-link"><i class="fa-solid fa-user"></i></a>
+                <a href="#" class="action-link"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
     </header>
-    <main id="app">
-        <h2>Bienvenido a nuestra tienda</h2>
-        <div id="products-container"></div>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="container">
+                <h1>Descubre la Nueva Colección</h1>
+                <p>Estilo y confort para cada ocasión.</p>
+                <a href="#" class="btn btn-primary">Comprar Ahora</a>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="container">
+                <h2>Productos Destacados</h2>
+                <div id="products-container" class="product-grid">
+                    <!-- Los productos se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Mi E-Commerce. Todos los derechos reservados.</p>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Sobre Nosotros</h3>
+                    <ul>
+                        <li><a href="#">Nuestra Historia</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carreras</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Envíos y Devoluciones</a></li>
+                        <li><a href="#">Contactanos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Síguenos</h3>
+                    <div class="social-media">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopTavo. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
-    <script src="scripts/main.js"></script>
+
+    <script src="../components/ProductCard.js"></script>
+    <script src="../pages/home.js"></script>
 </body>
 </html>
