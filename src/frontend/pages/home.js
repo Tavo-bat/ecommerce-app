@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'Camisa Casual de Lino',
             price: 49.99,
-            image: 'https://images.unsplash.com/photo-1622470953794-3d5f5aa96113?q=80&w=1964&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1964&auto=format&fit=crop'
         },
         {
             name: 'Zapatillas Urbanas',
@@ -25,17 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'Mochila de Lona',
             price: 60.00,
-            image: 'https://images.unsplash.com/photo-1553062407-98eeb68c6a62?q=80&w=1887&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1509762774605-f07235a08f1f?q=80&w=1887&auto=format&fit=crop'
         },
         {
             name: 'Jeans Slim Fit',
             price: 95.00,
-            image: 'https://images.unsplash.com/photo-1602293589930-45a9ecba3ab4?q=80&w=1887&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1887&auto=format&fit=crop'
         },
         {
             name: 'Sudadera con Capucha',
             price: 65.00,
-            image: 'https://images.unsplash.com/photo-1556821843-a79b4b0853a4?q=80&w=1887&auto=format&fit=crop'
+            image: 'https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         },
         {
             name: 'Chaqueta de Cuero',
