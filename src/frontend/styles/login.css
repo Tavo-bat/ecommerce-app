@@ -1,8 +1,5 @@
-/* login.css — usa las variables definidas en main.css */
-body, html {
-    height: 100%;
-    margin: 0;
-}
+/* login.css — usa las variables de main.css */
+body, html { height: 100%; margin: 0; }
 
 .login-container {
     display: flex;
@@ -10,7 +7,7 @@ body, html {
     align-items: center;
     min-height: 100vh;
     padding: 2rem 1rem;
-    background: linear-gradient(135deg, var(--color-bg) 0%, #e8ecf0 100%);
+    background: linear-gradient(135deg, var(--color-bg) 0%, #e0e5eb 100%);
 }
 
 .login-box {
@@ -31,10 +28,7 @@ body, html {
     margin-bottom: 1.5rem;
     transition: color var(--transition);
 }
-
-.back-link:hover {
-    color: var(--color-primary);
-}
+.back-link:hover { color: var(--color-primary); }
 
 .login-box h1 {
     margin: 0 0 1.75rem;
@@ -44,9 +38,7 @@ body, html {
     text-align: center;
 }
 
-.input-group {
-    margin-bottom: 1.25rem;
-}
+.input-group { margin-bottom: 1.25rem; }
 
 .input-group label {
     display: block;
@@ -93,9 +85,7 @@ body, html {
     box-shadow: 0 4px 14px rgba(231, 76, 60, 0.35);
 }
 
-.btn-login:active {
-    transform: scale(0.98);
-}
+.btn-login:active { transform: scale(0.98); }
 
 .extra-links {
     margin-top: 1.5rem;
