@@ -1,83 +1,121 @@
+/* register.css — usa las variables definidas en main.css */
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
 }
 
 .register-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--color-bg) 0%, #e8ecf0 100%);
 }
 
 .register-box {
-    background: #fff;
+    background: var(--color-white);
     padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
     width: 100%;
-    max-width: 450px;
+    max-width: 460px;
+    animation: fadeInUp 0.5s ease both;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    transition: color var(--transition);
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+}
+
+.register-box h1 {
+    margin: 0 0 1.75rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-dark);
     text-align: center;
 }
 
-.register-box h2 {
-    margin-bottom: 1.5rem;
-    color: #333;
-}
-
 .input-group {
-    margin-bottom: 1.5rem;
-    text-align: left;
+    margin-bottom: 1.1rem;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 0.5rem;
-    color: #555;
-    font-weight: bold;
+    margin-bottom: 0.4rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .input-group input {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; 
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    color: var(--color-text);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input-group input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
 }
 
 .btn-register {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.85rem;
     border: none;
-    border-radius: 4px;
-    background-color: #2c3e50;
-    color: white;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-family: var(--font-family);
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+    transition: background-color var(--transition), box-shadow var(--transition), transform 0.15s ease;
 }
 
 .btn-register:hover {
-    background-color: #34495e;
+    background-color: var(--color-primary-dark);
+    box-shadow: 0 4px 14px rgba(231, 76, 60, 0.35);
+}
+
+.btn-register:active {
+    transform: scale(0.98);
 }
 
 .extra-links {
     margin-top: 1.5rem;
+    text-align: center;
 }
 
 .extra-links a {
-    color: #e74c3c;
+    color: var(--color-primary);
     text-decoration: none;
+    font-size: 0.9rem;
+    transition: color var(--transition);
 }
 
 .extra-links a:hover {
+    color: var(--color-primary-dark);
     text-decoration: underline;
 }
 
 .extra-links p {
-    margin-top: 1rem;
-    color: #555;
+    margin-top: 0.75rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
 }

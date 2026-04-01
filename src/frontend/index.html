@@ -3,87 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Tavo</title>
+    <meta name="description" content="TavoShop — Ropa, calzado y accesorios de moda con estilo único. Descubre la nueva colección.">
+    <meta name="keywords" content="tienda ropa, moda, zapatillas, accesorios, camisa, jeans">
+    <meta property="og:title" content="TavoShop — Nueva Colección">
+    <meta property="og:description" content="Estilo y confort para cada ocasión. Descubre la nueva colección en TavoShop.">
+    <meta property="og:type" content="website">
+    <title>TavoShop — Descubre la Nueva Colección</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="logo">
-                <a href="#">TavoShop</a>
+                <a href="index.html" aria-label="TavoShop — Ir al inicio">TavoShop</a>
             </div>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Hombres</a></li>
-                    <li><a href="#">Mujeres</a></li>
-                    <li><a href="#">Niños</a></li>
-                    <li><a href="#">Ofertas</a></li>
+            <nav class="navigation" aria-label="Navegación principal">
+                <ul role="list">
+                    <li><a href="index.html" aria-current="page">Inicio</a></li>
+                    <li><a href="#hombres">Hombres</a></li>
+                    <li><a href="#mujeres">Mujeres</a></li>
+                    <li><a href="#ninos">Niños</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <form class="search-bar">
-                    <input type="text" placeholder="Buscar productos...">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <form class="search-bar" role="search" aria-label="Buscar productos">
+                    <label for="search-input" class="visually-hidden">Buscar productos</label>
+                    <input type="search" id="search-input" name="q" placeholder="Buscar productos..." autocomplete="off">
+                    <button type="submit" aria-label="Realizar búsqueda">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    </button>
                 </form>
-                <a href="login.html" class="action-link"><i class="fa-solid fa-user"></i></a>
-                <a href="#" class="action-link"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="login.html" class="action-link" aria-label="Iniciar sesión">
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </a>
+                <a href="#carrito" class="action-link" aria-label="Ver carrito de compras">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    <span class="cart-badge" id="cart-count" aria-live="polite">0</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <main class="main-content">
-        <section class="hero">
+    <main class="main-content" id="main-content">
+        <section class="hero" aria-labelledby="hero-heading">
             <div class="container">
-                <h1>Descubre la Nueva Colección</h1>
+                <h1 id="hero-heading">Descubre la Nueva Colección</h1>
                 <p>Estilo y confort para cada ocasión.</p>
-                <a href="#" class="btn btn-primary">Comprar Ahora</a>
+                <a href="#productos" class="btn btn-primary">Comprar Ahora</a>
             </div>
         </section>
 
-        <section class="products">
+        <section class="products" id="productos" aria-labelledby="products-heading">
             <div class="container">
-                <h2>Productos Destacados</h2>
-                <div id="products-container" class="product-grid">
+                <h2 id="products-heading">Productos Destacados</h2>
+                <div id="products-container" class="product-grid" role="list" aria-label="Lista de productos destacados">
                     <!-- Los productos se cargarán aquí dinámicamente -->
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-columns">
                 <div class="footer-column">
                     <h3>Sobre Nosotros</h3>
-                    <ul>
-                        <li><a href="#">Nuestra Historia</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Carreras</a></li>
+                    <ul role="list">
+                        <li><a href="#historia">Nuestra Historia</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#carreras">Carreras</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Ayuda</h3>
-                    <ul>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
-                        <li><a href="#">Envíos y Devoluciones</a></li>
-                        <li><a href="#">Contactanos</a></li>
+                    <ul role="list">
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#envios">Envíos y Devoluciones</a></li>
+                        <li><a href="#contacto">Contáctanos</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Síguenos</h3>
-                    <div class="social-media">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <nav aria-label="Redes sociales">
+                        <div class="social-media">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Twitter">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </nav>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 TavoShop. Todos los derechos reservados.</p>
+                <p><small>&copy; 2026 TavoShop. Todos los derechos reservados.</small></p>
             </div>
         </div>
     </footer>
