@@ -40,7 +40,13 @@ function ProductCard(product) {
                     <span class="rating-count">(${rating})</span>
                 </div>
                 <p class="product-price">$${product.price.toFixed(2)}</p>
-                <button class="add-to-cart-btn" aria-label="Añadir ${product.name} al carrito">
+                <button
+                    class="add-to-cart-btn"
+                    aria-label="Añadir ${product.name} al carrito"
+                    data-name="${product.name}"
+                    data-price="${product.price}"
+                    data-image="${product.image}"
+                >
                     <i class="fa-solid fa-cart-plus" aria-hidden="true"></i>
                     Añadir al carrito
                 </button>

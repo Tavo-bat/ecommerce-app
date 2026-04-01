@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ==========================================
+    // 1. ESTADO GLOBAL
+    // ==========================================
     const productsContainer = document.getElementById('products-container');
+    const searchForm = document.querySelector('.search-bar');
+    const searchInput = document.getElementById('search-input');
+    const cartBadge = document.getElementById('cart-count');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navigation = document.getElementById('navigation');
 
     const sampleProducts = [
         {
@@ -55,12 +63,128 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    function renderProducts() {
+    let currentProducts = [...sampleProducts];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+    // ==========================================
+    // 2. RENDERIZADO DE PRODUCTOS
+    // ==========================================
+    function renderProducts(products) {
         if (!productsContainer) return;
-        productsContainer.innerHTML = sampleProducts
+        
+        if (products.length === 0) {
+            productsContainer.innerHTML = '<p class="no-results" style="grid-column: 1/-1; text-align: center; color: var(--color-text-muted);">No se encontraron productos que coincidan con tu búsqueda.</p>';
+            return;
+        }
+
+        productsContainer.innerHTML = products
             .map(product => ProductCard(product))
             .join('');
     }
 
-    renderProducts();
+    renderProducts(currentProducts);
+
+
+    // ==========================================
+    // 3. CARRITO DE COMPRAS (Event Delegation)
+    // ==========================================
+    function updateCartBadge() {
+        if (!cartBadge) return;
+        
+        // Sumamos la cantidad de todos los items
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        cartBadge.textContent = totalItems;
+        
+        // Animación pequeña para dar feedback al usuario
+        cartBadge.style.transform = 'scale(1.3)';
+        setTimeout(() => cartBadge.style.transform = 'scale(1)', 200);
+    }
+
+    // Inicializar el badge al cargar la página
+    updateCartBadge();
+
+    if (productsContainer) {
+        productsContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.add-to-cart-btn');
+            if (!btn) return; // Si no hicieron clic en el botón, ignorar
+
+            // Extraer datos del producto desde los atributos data-
+            const name = btn.getAttribute('data-name');
+            const price = parseFloat(btn.getAttribute('data-price'));
+            const image = btn.getAttribute('data-image');
+
+            // Buscar si ya existe en el carrito
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, image, quantity: 1 });
+            }
+
+            // Guardar en localStorage y actualizar UI
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+
+            // Feedback visual en el botón
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Añadido';
+            btn.style.backgroundColor = 'var(--color-primary-dark)';
+            btn.style.color = 'white';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+            }, 1000);
+        });
+    }
+
+
+    // ==========================================
+    // 4. BÚSQUEDA DE PRODUCTOS
+    // ==========================================
+    if (searchForm && searchInput) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Evitar que la página recargue
+            
+            const query = searchInput.value.trim().toLowerCase();
+            
+            if (query === '') {
+                currentProducts = [...sampleProducts];
+            } else {
+                currentProducts = sampleProducts.filter(p => 
+                    p.name.toLowerCase().includes(query)
+                );
+            }
+            
+            renderProducts(currentProducts);
+            
+            // Hacer scroll suave hacia los productos
+            const section = document.getElementById('productos');
+            if (section) section.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+
+    // ==========================================
+    // 5. MENÚ MÓVIL (HAMBURGUESA)
+    // ==========================================
+    if (menuToggle && navigation) {
+        menuToggle.addEventListener('click', () => {
+            const isActive = navigation.classList.contains('active');
+            
+            // Alternar clase toggle y accesibilidad
+            navigation.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', !isActive);
+            
+            // Cambiar el ícono (bars <-> xmark)
+            const icon = menuToggle.querySelector('i');
+            if (!isActive) {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+    }
 });
